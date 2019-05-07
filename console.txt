@@ -1,1 +1,455 @@
-
+Console Output
+Started by user admin
+Replayed #8
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] properties
+[Pipeline] node
+Running on e961d94707b1 in /workspace/infrastructure-pipeline
+[Pipeline] {
+[Pipeline] git
+Fetching changes from the remote Git repository
+Checking out Revision 4e7cc810ab663f94b8808a9a07856ead42ee1b9e (refs/remotes/origin/master)
+Commit message: "Update README.md"
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ env
+JENKINS_HOME=/var/jenkins_home
+RUN_CHANGES_DISPLAY_URL=http://unconfigured-jenkins-location/job/infrastructure-pipeline/10/display/redirect?page=changes
+HOSTNAME=e961d94707b1
+LD_LIBRARY_PATH=/usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64/server:/usr/lib/jvm/java-1.8-openjdk/jre/lib/amd64:/usr/lib/jvm/java-1.8-openjdk/jre/../lib/amd64
+NODE_LABELS=e961d94707b1 linux swarm
+SHLVL=4
+HOME=/root
+HUDSON_COOKIE=e65729d1-127a-4049-ac09-af5d1f4a9bbc
+JENKINS_SERVER_COOKIE=durable-ed30ddaef097fa3725e5f3302468db06
+COMMAND_OPTIONS=-master http://10.120.1.55:8080 -labels 'linux' -disableClientsUniqueId -executors 2 -username admin -password Trustno!
+WORKSPACE=/workspace/infrastructure-pipeline
+NODE_NAME=e961d94707b1
+STAGE_NAME=Test
+EXECUTOR_NUMBER=0
+BUILD_DISPLAY_NAME=#10
+HUDSON_HOME=/var/jenkins_home
+JOB_BASE_NAME=infrastructure-pipeline
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+BUILD_ID=10
+DOCKER_CHANNEL=stable
+SWARM_CLIENT_VERSION=3.10
+BUILD_TAG=jenkins-infrastructure-pipeline-10
+BUILD_NUMBER=10
+JENKINS_NODE_COOKIE=6ce6975a-2be3-4e9c-98d2-5137a23bfdf2
+RUN_DISPLAY_URL=http://unconfigured-jenkins-location/job/infrastructure-pipeline/10/display/redirect
+DOCKER_VERSION=17.12.1-ce
+HUDSON_SERVER_COOKIE=4413bd3384b04f79
+JOB_DISPLAY_URL=http://unconfigured-jenkins-location/job/infrastructure-pipeline/display/redirect
+JOB_NAME=infrastructure-pipeline
+DOCKER_COMPOSE_VERSION=1.16.1
+PWD=/workspace/infrastructure-pipeline
+PASSWORD_SECRET=/run/secrets/jenkins-pass
+USER_NAME_SECRET=/run/secrets/jenkins-user
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (GetInstances)
+[Pipeline] sh
++ aws ec2 describe-instances --region us-east-1
+ > git rev-parse --is-inside-work-tree # timeout=10
+ > git config remote.origin.url https://github.com/Tafessek/-infrastructure-pipeline.git # timeout=10
+Fetching upstream changes from https://github.com/Tafessek/-infrastructure-pipeline.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/Tafessek/-infrastructure-pipeline.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4e7cc810ab663f94b8808a9a07856ead42ee1b9e
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master 4e7cc810ab663f94b8808a9a07856ead42ee1b9e
+ > git rev-list --no-walk 4e7cc810ab663f94b8808a9a07856ead42ee1b9e # timeout=10
+{
+    "Reservations": [
+        {
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "enabled"
+                    }, 
+                    "PublicDnsName": "ec2-52-90-187-93.compute-1.amazonaws.com", 
+                    "State": {
+                        "Code": 16, 
+                        "Name": "running"
+                    }, 
+                    "EbsOptimized": false, 
+                    "LaunchTime": "2019-05-07T21:04:47.000Z", 
+                    "PublicIpAddress": "52.90.187.93", 
+                    "PrivateIpAddress": "10.120.1.174", 
+                    "ProductCodes": [], 
+                    "VpcId": "vpc-0a8253c13389f0d91", 
+                    "CpuOptions": {
+                        "CoreCount": 2, 
+                        "ThreadsPerCore": 1
+                    }, 
+                    "StateTransitionReason": "", 
+                    "InstanceId": "i-0c4caa2147fcc0197", 
+                    "EnaSupport": true, 
+                    "ImageId": "ami-0371c52b98b0f3c73", 
+                    "PrivateDnsName": "ip-10-120-1-174.ec2.internal", 
+                    "KeyName": "SEIS665-01-Spring2019-VA", 
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "jenkins-JenkinsSecurityGroup-FZK6P49YJI9P", 
+                            "GroupId": "sg-01a82e21c2c8b1f7f"
+                        }
+                    ], 
+                    "ClientToken": "ccd5aa50-73c8-a3d6-4174-a378a559bf8b_subnet-007f69d3ba34eac3a_1", 
+                    "SubnetId": "subnet-007f69d3ba34eac3a", 
+                    "InstanceType": "t2.medium", 
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    }, 
+                    "NetworkInterfaces": [
+                        {
+                            "Status": "in-use", 
+                            "MacAddress": "12:06:87:b7:3b:90", 
+                            "SourceDestCheck": true, 
+                            "VpcId": "vpc-0a8253c13389f0d91", 
+                            "Description": "", 
+                            "NetworkInterfaceId": "eni-080496c83bd4b88d2", 
+                            "PrivateIpAddresses": [
+                                {
+                                    "PrivateDnsName": "ip-10-120-1-174.ec2.internal", 
+                                    "PrivateIpAddress": "10.120.1.174", 
+                                    "Primary": true, 
+                                    "Association": {
+                                        "PublicIp": "52.90.187.93", 
+                                        "PublicDnsName": "ec2-52-90-187-93.compute-1.amazonaws.com", 
+                                        "IpOwnerId": "amazon"
+                                    }
+                                }
+                            ], 
+                            "PrivateDnsName": "ip-10-120-1-174.ec2.internal", 
+                            "Attachment": {
+                                "Status": "attached", 
+                                "DeviceIndex": 0, 
+                                "DeleteOnTermination": true, 
+                                "AttachmentId": "eni-attach-05c23412107681785", 
+                                "AttachTime": "2019-05-07T21:04:47.000Z"
+                            }, 
+                            "Groups": [
+                                {
+                                    "GroupName": "jenkins-JenkinsSecurityGroup-FZK6P49YJI9P", 
+                                    "GroupId": "sg-01a82e21c2c8b1f7f"
+                                }
+                            ], 
+                            "Ipv6Addresses": [], 
+                            "OwnerId": "367227008255", 
+                            "PrivateIpAddress": "10.120.1.174", 
+                            "SubnetId": "subnet-007f69d3ba34eac3a", 
+                            "Association": {
+                                "PublicIp": "52.90.187.93", 
+                                "PublicDnsName": "ec2-52-90-187-93.compute-1.amazonaws.com", 
+                                "IpOwnerId": "amazon"
+                            }
+                        }
+                    ], 
+                    "SourceDestCheck": true, 
+                    "Placement": {
+                        "Tenancy": "default", 
+                        "GroupName": "", 
+                        "AvailabilityZone": "us-east-1a"
+                    }, 
+                    "Hypervisor": "xen", 
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1", 
+                            "Ebs": {
+                                "Status": "attached", 
+                                "DeleteOnTermination": true, 
+                                "VolumeId": "vol-0ad2780cab765c64e", 
+                                "AttachTime": "2019-05-07T21:04:48.000Z"
+                            }
+                        }
+                    ], 
+                    "Architecture": "x86_64", 
+                    "RootDeviceType": "ebs", 
+                    "IamInstanceProfile": {
+                        "Id": "AIPAVLADPOT76HZL3SDNI", 
+                        "Arn": "arn:aws:iam::367227008255:instance-profile/jenkins-JenkinsInstanceProfile-B2US3ZQ9PY0M"
+                    }, 
+                    "RootDeviceName": "/dev/sda1", 
+                    "VirtualizationType": "hvm", 
+                    "Tags": [
+                        {
+                            "Value": "jenkins slave", 
+                            "Key": "Name"
+                        }, 
+                        {
+                            "Value": "jenkins", 
+                            "Key": "aws:cloudformation:stack-name"
+                        }, 
+                        {
+                            "Value": "JenkinsSlaveGroup", 
+                            "Key": "aws:cloudformation:logical-id"
+                        }, 
+                        {
+                            "Value": "jenkins-JenkinsSlaveGroup-1UFVZ136CXS7T", 
+                            "Key": "aws:autoscaling:groupName"
+                        }, 
+                        {
+                            "Value": "arn:aws:cloudformation:us-east-1:367227008255:stack/jenkins/e2c231e0-710a-11e9-af4b-0a6fb8e9c8ee", 
+                            "Key": "aws:cloudformation:stack-id"
+                        }
+                    ], 
+                    "AmiLaunchIndex": 0
+                }
+            ], 
+            "ReservationId": "r-0740d9143ec093e73", 
+            "RequesterId": "940372691376", 
+            "Groups": [], 
+            "OwnerId": "367227008255"
+        }, 
+        {
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "disabled"
+                    }, 
+                    "PublicDnsName": "ec2-54-89-24-169.compute-1.amazonaws.com", 
+                    "State": {
+                        "Code": 16, 
+                        "Name": "running"
+                    }, 
+                    "EbsOptimized": false, 
+                    "LaunchTime": "2019-05-07T21:01:06.000Z", 
+                    "PublicIpAddress": "54.89.24.169", 
+                    "PrivateIpAddress": "10.120.1.55", 
+                    "ProductCodes": [], 
+                    "VpcId": "vpc-0a8253c13389f0d91", 
+                    "CpuOptions": {
+                        "CoreCount": 2, 
+                        "ThreadsPerCore": 1
+                    }, 
+                    "StateTransitionReason": "", 
+                    "InstanceId": "i-0223031f331fb14bd", 
+                    "EnaSupport": true, 
+                    "ImageId": "ami-0371c52b98b0f3c73", 
+                    "PrivateDnsName": "ip-10-120-1-55.ec2.internal", 
+                    "KeyName": "SEIS665-01-Spring2019-VA", 
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "jenkins-JenkinsSecurityGroup-FZK6P49YJI9P", 
+                            "GroupId": "sg-01a82e21c2c8b1f7f"
+                        }
+                    ], 
+                    "ClientToken": "jenki-Jenki-1IW2UIDILGDSQ", 
+                    "SubnetId": "subnet-007f69d3ba34eac3a", 
+                    "InstanceType": "t2.medium", 
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    }, 
+                    "NetworkInterfaces": [
+                        {
+                            "Status": "in-use", 
+                            "MacAddress": "12:dc:7b:4b:ce:6e", 
+                            "SourceDestCheck": true, 
+                            "VpcId": "vpc-0a8253c13389f0d91", 
+                            "Description": "", 
+                            "NetworkInterfaceId": "eni-04269b5bf0f05c502", 
+                            "PrivateIpAddresses": [
+                                {
+                                    "PrivateDnsName": "ip-10-120-1-55.ec2.internal", 
+                                    "PrivateIpAddress": "10.120.1.55", 
+                                    "Primary": true, 
+                                    "Association": {
+                                        "PublicIp": "54.89.24.169", 
+                                        "PublicDnsName": "ec2-54-89-24-169.compute-1.amazonaws.com", 
+                                        "IpOwnerId": "amazon"
+                                    }
+                                }
+                            ], 
+                            "PrivateDnsName": "ip-10-120-1-55.ec2.internal", 
+                            "Attachment": {
+                                "Status": "attached", 
+                                "DeviceIndex": 0, 
+                                "DeleteOnTermination": true, 
+                                "AttachmentId": "eni-attach-036d149cab3e37e8b", 
+                                "AttachTime": "2019-05-07T21:01:06.000Z"
+                            }, 
+                            "Groups": [
+                                {
+                                    "GroupName": "jenkins-JenkinsSecurityGroup-FZK6P49YJI9P", 
+                                    "GroupId": "sg-01a82e21c2c8b1f7f"
+                                }
+                            ], 
+                            "Ipv6Addresses": [], 
+                            "OwnerId": "367227008255", 
+                            "PrivateIpAddress": "10.120.1.55", 
+                            "SubnetId": "subnet-007f69d3ba34eac3a", 
+                            "Association": {
+                                "PublicIp": "54.89.24.169", 
+                                "PublicDnsName": "ec2-54-89-24-169.compute-1.amazonaws.com", 
+                                "IpOwnerId": "amazon"
+                            }
+                        }
+                    ], 
+                    "SourceDestCheck": true, 
+                    "Placement": {
+                        "Tenancy": "default", 
+                        "GroupName": "", 
+                        "AvailabilityZone": "us-east-1a"
+                    }, 
+                    "Hypervisor": "xen", 
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1", 
+                            "Ebs": {
+                                "Status": "attached", 
+                                "DeleteOnTermination": true, 
+                                "VolumeId": "vol-0232177e97f271913", 
+                                "AttachTime": "2019-05-07T21:01:06.000Z"
+                            }
+                        }
+                    ], 
+                    "Architecture": "x86_64", 
+                    "RootDeviceType": "ebs", 
+                    "IamInstanceProfile": {
+                        "Id": "AIPAVLADPOT76HZL3SDNI", 
+                        "Arn": "arn:aws:iam::367227008255:instance-profile/jenkins-JenkinsInstanceProfile-B2US3ZQ9PY0M"
+                    }, 
+                    "RootDeviceName": "/dev/sda1", 
+                    "VirtualizationType": "hvm", 
+                    "Tags": [
+                        {
+                            "Value": "JenkinsServer", 
+                            "Key": "Name"
+                        }, 
+                        {
+                            "Value": "JenkinsServer", 
+                            "Key": "aws:cloudformation:logical-id"
+                        }, 
+                        {
+                            "Value": "arn:aws:cloudformation:us-east-1:367227008255:stack/jenkins/e2c231e0-710a-11e9-af4b-0a6fb8e9c8ee", 
+                            "Key": "aws:cloudformation:stack-id"
+                        }, 
+                        {
+                            "Value": "jenkins", 
+                            "Key": "aws:cloudformation:stack-name"
+                        }
+                    ], 
+                    "AmiLaunchIndex": 0
+                }
+            ], 
+            "ReservationId": "r-0c228d7aab119a4c4", 
+            "RequesterId": "043234062703", 
+            "Groups": [], 
+            "OwnerId": "367227008255"
+        }
+    ]
+}
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (CreateInstance)
+[Pipeline] sh
++ aws ec2 run-instances --image-id ami-0de53d8956e8dcf80 --count 1 --instance-type t2.micro --key-name SEIS665-01-Spring2019-VA --security-group-ids sg-0b0b9146ae3fce95b --subnet-id subnet-00a194ef0dcd299b3 --region us-east-1
+{
+    "Instances": [
+        {
+            "Monitoring": {
+                "State": "disabled"
+            }, 
+            "PublicDnsName": "", 
+            "StateReason": {
+                "Message": "pending", 
+                "Code": "pending"
+            }, 
+            "State": {
+                "Code": 0, 
+                "Name": "pending"
+            }, 
+            "EbsOptimized": false, 
+            "LaunchTime": "2019-05-07T22:46:11.000Z", 
+            "PrivateIpAddress": "172.31.91.93", 
+            "ProductCodes": [], 
+            "VpcId": "vpc-04e1b08a450b69c10", 
+            "CpuOptions": {
+                "CoreCount": 1, 
+                "ThreadsPerCore": 1
+            }, 
+            "StateTransitionReason": "", 
+            "InstanceId": "i-00361656d97e6282b", 
+            "ImageId": "ami-0de53d8956e8dcf80", 
+            "PrivateDnsName": "ip-172-31-91-93.ec2.internal", 
+            "KeyName": "SEIS665-01-Spring2019-VA", 
+            "SecurityGroups": [
+                {
+                    "GroupName": "default", 
+                    "GroupId": "sg-0b0b9146ae3fce95b"
+                }
+            ], 
+            "ClientToken": "", 
+            "SubnetId": "subnet-00a194ef0dcd299b3", 
+            "InstanceType": "t2.micro", 
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            }, 
+            "NetworkInterfaces": [
+                {
+                    "Status": "in-use", 
+                    "MacAddress": "12:95:0b:62:8c:ba", 
+                    "SourceDestCheck": true, 
+                    "VpcId": "vpc-04e1b08a450b69c10", 
+                    "Description": "", 
+                    "NetworkInterfaceId": "eni-0fd1075199f41aa04", 
+                    "PrivateIpAddresses": [
+                        {
+                            "PrivateDnsName": "ip-172-31-91-93.ec2.internal", 
+                            "Primary": true, 
+                            "PrivateIpAddress": "172.31.91.93"
+                        }
+                    ], 
+                    "PrivateDnsName": "ip-172-31-91-93.ec2.internal", 
+                    "Attachment": {
+                        "Status": "attaching", 
+                        "DeviceIndex": 0, 
+                        "DeleteOnTermination": true, 
+                        "AttachmentId": "eni-attach-05b244b50cb316eb6", 
+                        "AttachTime": "2019-05-07T22:46:11.000Z"
+                    }, 
+                    "Groups": [
+                        {
+                            "GroupName": "default", 
+                            "GroupId": "sg-0b0b9146ae3fce95b"
+                        }
+                    ], 
+                    "Ipv6Addresses": [], 
+                    "OwnerId": "367227008255", 
+                    "SubnetId": "subnet-00a194ef0dcd299b3", 
+                    "PrivateIpAddress": "172.31.91.93"
+                }
+            ], 
+            "SourceDestCheck": true, 
+            "Placement": {
+                "Tenancy": "default", 
+                "GroupName": "", 
+                "AvailabilityZone": "us-east-1a"
+            }, 
+            "Hypervisor": "xen", 
+            "BlockDeviceMappings": [], 
+            "Architecture": "x86_64", 
+            "RootDeviceType": "ebs", 
+            "RootDeviceName": "/dev/xvda", 
+            "VirtualizationType": "hvm", 
+            "AmiLaunchIndex": 0
+        }
+    ], 
+    "ReservationId": "r-03bbb155e50de13c0", 
+    "Groups": [], 
+    "OwnerId": "367227008255"
+}
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
